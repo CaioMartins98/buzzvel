@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 
-type Provider = "google" | "github";
+type Provider = "google";
 
 function GoogleIcon() {
   return (

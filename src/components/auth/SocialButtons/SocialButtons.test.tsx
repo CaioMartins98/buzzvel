@@ -17,13 +17,10 @@ describe("SocialButtons", () => {
     signInSocial.mockResolvedValue({ data: {}, error: null });
   });
 
-  it("renders Google and GitHub buttons", () => {
+  it("renders the Google sign-in button", () => {
     render(<SocialButtons />);
     expect(
       screen.getByRole("button", { name: /continue with google/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /continue with github/i })
     ).toBeInTheDocument();
   });
 
