@@ -79,6 +79,8 @@ Performance **100**, Accessibility **100**, Best Practices **100**, SEO **100**.
 Push the repository to GitHub and import it on Vercel — Next.js is detected
 automatically (no build config needed). `vercel.json` adds security headers.
 
+Live preview: [https://buzzvel-alpha.vercel.app/](https://buzzvel-alpha.vercel.app/)
+
 ### Storybook
 
 ```bash
