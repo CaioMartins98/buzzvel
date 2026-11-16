@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { categories } from "@/lib/data";
+import { categories, content } from "@/lib/data";
 
 function ArrowIcon() {
   return (
@@ -28,13 +28,12 @@ export function Skills() {
     <section id="skills" className="bg-white">
       <Container className="py-[60px] lg:py-[100px]">
         <div className="max-w-[560px]">
-          <Eyebrow>Find your next skill</Eyebrow>
+          <Eyebrow>{content.skills.eyebrow}</Eyebrow>
           <h2 className="mt-4 font-heading text-[32px] font-extrabold leading-[36px] tracking-tight text-ink lg:text-[48px] lg:leading-[56px]">
-            Learn something worth knowing.
+            {content.skills.title}
           </h2>
           <p className="mt-4 text-base leading-[26px] text-muted-2 lg:text-lg lg:leading-[28px]">
-            Short, practical courses designed around skills you can put to work
-            immediately.
+            {content.skills.description}
           </p>
         </div>
 
@@ -60,7 +59,7 @@ export function Skills() {
                 href="#skills"
                 className="mt-4 inline-flex items-center gap-1 text-sm leading-6 text-ink transition-colors group-hover:text-brand"
               >
-                Explore
+                {content.skills.explore}
                 <ArrowIcon />
               </Link>
             </article>

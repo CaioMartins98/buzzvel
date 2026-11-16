@@ -6,7 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { UserMenu } from "@/components/auth/UserMenu";
 import { authClient } from "@/lib/auth-client";
-import { navLinks } from "@/lib/data";
+import { navLinks, content } from "@/lib/data";
 
 function Logo({ className = "" }: { className?: string }) {
   return (
@@ -66,10 +66,10 @@ export function Header() {
                 href="/login"
                 className="rounded-lg px-4 py-2.5 text-sm leading-6 text-muted-2 transition-colors hover:text-ink"
               >
-                Log in
+                {content.header.login}
               </Link>
               <Button href="/signup" variant="primary" className="px-5 py-2.5">
-                Start learning
+                {content.header.signup}
               </Button>
             </>
           )}
@@ -128,10 +128,10 @@ export function Header() {
               ) : (
                 <>
                   <Button href="/login" variant="secondary" className="flex-1">
-                    Log in
+                    {content.header.login}
                   </Button>
                   <Button href="/signup" variant="primary" className="flex-1">
-                    Start learning
+                    {content.header.signup}
                   </Button>
                 </>
               )}

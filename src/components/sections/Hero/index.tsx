@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { AvatarStack } from "@/components/ui/AvatarStack";
-import { trustedAvatars } from "@/lib/data";
+import { trustedAvatars, content } from "@/lib/data";
 
 
 export function Hero() {
@@ -11,21 +11,23 @@ export function Hero() {
     <section className="overflow-hidden bg-cream">
       <Container className="grid items-center gap-12 py-[60px] lg:grid-cols-[560px_500px] lg:justify-between lg:gap-[60px] lg:py-[100px]">
         <div className="order-2 max-w-[560px] lg:order-1">
-          <Eyebrow>Learn at your own pace</Eyebrow>
+          <Eyebrow>{content.hero.eyebrow}</Eyebrow>
           <h1 className="mt-4 font-heading text-[40px] font-extrabold leading-[44px] tracking-tight text-ink lg:text-[64px] lg:leading-[70px]">
-            Build skills that actually move you forward.
+            {content.hero.title}
           </h1>
           <p className="mt-6 max-w-[480px] text-base leading-[26px] text-muted-2 lg:text-lg lg:leading-[28px]">
-            Practical courses taught by people who do the work every day. Learn
-            design, technology, business and more — one focused lesson at a
-            time.
+            {content.hero.description}
           </p>
           <div className="mt-8 flex flex-col gap-3 lg:flex-row">
-            <Button href="#skills" className="w-full lg:w-auto">
-              Explore courses
+            <Button href={content.hero.primaryCta.href} className="w-full lg:w-auto">
+              {content.hero.primaryCta.label}
             </Button>
-            <Button href="#how" variant="secondary" className="w-full lg:w-auto">
-              See how it works
+            <Button
+              href={content.hero.secondaryCta.href}
+              variant="secondary"
+              className="w-full lg:w-auto"
+            >
+              {content.hero.secondaryCta.label}
             </Button>
           </div>
 
@@ -33,7 +35,7 @@ export function Hero() {
            
             <AvatarStack avatars={trustedAvatars} />
             <p className="text-sm leading-6 text-ink ">
-              <b>Trusted by 24,000+</b> learners
+              <b>{content.hero.trust}</b> {content.hero.trustSuffix}
             </p>
           </div>
         </div>
@@ -72,14 +74,14 @@ export function Hero() {
                 </svg>
               ))}
             </span>
-            <span className="text-sm leading-6 text-ink">4.9 avg rating</span>
+            <span className="text-sm leading-6 text-ink">{content.hero.rating}</span>
           </div>
           <div className="absolute top-4 -left-4 flex items-center gap-3 rounded-xl bg-white px-4 py-3 shadow-lg shadow-ink/5">
             <span className="flex h-8 items-center rounded-lg bg-sky px-3.5 text-sm font-semibold text-brand">
-              120+
+              {content.hero.badgeValue}
             </span>
             <span className="text-sm leading-6 text-ink">
-              expert-led courses
+              {content.hero.badgeLabel}
             </span>
           </div>
         </div>

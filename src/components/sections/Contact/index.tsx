@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState, type FormEvent } from "react";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { content } from "@/lib/data";
 
 function MailIcon() {
   return (
@@ -65,16 +66,16 @@ export function Contact() {
 
   return (
     <section id="contact" className="bg-white">
-      <Container className="grid gap-12 py-[60px] lg:grid-cols-[480px_540px] lg:justify-between lg:py-[100px]">
+
+      <Container className="grid gap-12 py-[60px] lg:py-[100px] xl:grid-cols-[480px_540px] xl:justify-between">
+
         <div>
-          <Eyebrow>CONTACT</Eyebrow>
+          <Eyebrow>{content.contact.eyebrow}</Eyebrow>
           <h2 className="mt-4 font-heading text-[32px] font-extrabold leading-[36px] tracking-tight text-ink lg:text-[48px] lg:leading-[56px]">
-            Get in touch
+            {content.contact.title}
           </h2>
           <p className="mt-4 text-base leading-[26px] text-muted-2 lg:text-lg lg:leading-[28px]">
-            Have a question? We&rsquo;re here to help. Whether you&rsquo;re
-            looking for the right course, learning with your team or interested
-            in teaching with Luma, we&rsquo;d love to hear from you.
+            {content.contact.description}
           </p>
 
           <div className="mt-10 grid gap-4">
@@ -83,12 +84,12 @@ export function Contact() {
                 <MailIcon />
               </span>
               <div>
-                <p className="text-sm font-semibold leading-6 text-ink">Email</p>
+                <p className="text-sm font-semibold leading-6 text-ink">{content.contact.emailLabel}</p>
                 <a
-                  href="mailto:contact@luma.com"
+                  href={`mailto:${content.contact.email}`}
                   className="text-sm leading-6 transition-colors text-brand"
                 >
-                  contact@luma.com
+                  {content.contact.email}
                 </a>
               </div>
             </div>
@@ -98,10 +99,10 @@ export function Contact() {
               </span>
               <div>
                 <p className="text-sm font-semibold leading-6 text-ink">
-                  Response Time
+                  {content.contact.responseTimeLabel}
                 </p>
                 <p className="text-sm leading-6 text-muted-2">
-                  Up to 24 hours on business days
+                  {content.contact.responseTime}
                 </p>
               </div>
             </div>
@@ -110,10 +111,10 @@ export function Contact() {
 
         <div className="rounded-2xl border border-line bg-white p-6 sm:p-10">
           <h3 className="font-heading text-xl font-bold leading-8 text-ink">
-            Contact us
+            {content.contact.formHeading}
           </h3>
           <p className="mt-2 text-sm leading-6 text-muted-2">
-            Fill out the fields and we will get in touch.
+            {content.contact.formSubtitle}
           </p>
 
           {submitted ? (
@@ -121,8 +122,7 @@ export function Contact() {
               role="status"
               className="mt-8 rounded-xl bg-sky px-5 py-4 text-sm font-medium text-ink"
             >
-              Thanks! Your message has been sent — we&rsquo;ll be in touch
-              shortly.
+              {content.contact.success}
             </p>
           ) : (
             <form onSubmit={handleSubmit} className="mt-6 space-y-5" noValidate>
@@ -131,13 +131,13 @@ export function Contact() {
                   htmlFor="full-name"
                   className="block text-sm leading-6 text-ink"
                 >
-                  Full name
+                  {content.contact.form.nameLabel}
                 </label>
                 <input
                   id="full-name"
                   name="full-name"
                   type="text"
-                  placeholder="Your name"
+                  placeholder={content.contact.form.namePlaceholder}
                   autoComplete="name"
                   required
                   aria-invalid={Boolean(errors["full-name"])}
@@ -155,13 +155,13 @@ export function Contact() {
                   htmlFor="email"
                   className="block text-sm leading-6 text-ink"
                 >
-                  Email
+                  {content.contact.form.emailLabel}
                 </label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="youremail@example.com"
+                  placeholder={content.contact.form.emailPlaceholder}
                   autoComplete="email"
                   required
                   aria-invalid={Boolean(errors.email)}
@@ -179,13 +179,13 @@ export function Contact() {
                   htmlFor="question"
                   className="block text-sm leading-6 text-ink"
                 >
-                  Your question
+                  {content.contact.form.questionLabel}
                 </label>
                 <textarea
                   id="question"
                   name="question"
                   rows={4}
-                  placeholder="Tell us how we can help..."
+                  placeholder={content.contact.form.questionPlaceholder}
                   required
                   aria-invalid={Boolean(errors.question)}
                   aria-describedby={errors.question ? "question-error" : undefined}
@@ -201,7 +201,7 @@ export function Contact() {
                 type="submit"
                 className="inline-flex w-full items-center justify-center rounded-lg bg-brand px-7 py-3.5 text-sm leading-6 text-white transition-colors hover:bg-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand w-auto"
               >
-                Send message
+                {content.contact.form.submit}
               </button>
             </form>
           )}

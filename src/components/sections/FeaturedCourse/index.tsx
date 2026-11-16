@@ -2,8 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
-
-const meta = ["8 lessons", "2h 40min", "Intermediate"];
+import { content } from "@/lib/data";
 
 function ArrowIcon() {
   return (
@@ -32,7 +31,7 @@ export function FeaturedCourse() {
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-[60px]">
           <div className="relative">
             <span className="absolute -top-3 -left-2 z-10 rounded-md bg-lemon px-3 py-1.5 text-xs font-semibold leading-4 tracking-[0.12em] text-ink">
-              FEATURED COURSE
+              {content.featuredCourse.badge}
             </span>
             <div className="overflow-hidden rounded-2xl">
               <Image
@@ -47,22 +46,20 @@ export function FeaturedCourse() {
 
           <div>
             <p className="text-xs font-semibold leading-4 tracking-[0.12em] text-white">
-              Most popular this month
+              {content.featuredCourse.kicker}
             </p>
             <h2 className="mt-4 font-heading text-[32px] font-extrabold leading-[36px] tracking-tight text-white lg:text-[48px] lg:leading-[56px]">
-              Designing products people understand.
+              {content.featuredCourse.title}
             </h2>
             <p className="mt-5 text-base leading-[26px] text-white lg:leading-[28px]">
-              Learn how to turn complex workflows into simple, intentional
-              product experiences through research, structure and thoughtful
-              interaction design.
+              {content.featuredCourse.description}
             </p>
             <p className="mt-6 text-base leading-[28px] text-white/80">
-              with Maya Chen · Senior Product Designer
+              {content.featuredCourse.instructor}
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-3">
-              {meta.map((item) => (
+              {content.featuredCourse.meta.map((item) => (
                 <li
                   key={item}
                   className="rounded-lg border border-line/70 px-3.5 py-1.5 text-sm leading-6 text-white"
@@ -73,14 +70,14 @@ export function FeaturedCourse() {
             </ul>
 
             <div className="mt-8 flex flex-col gap-3 lg:flex-row lg:items-center">
-              <Button href="#contact" variant="lemon" className="w-full lg:w-auto">
-                View course
+              <Button href={content.featuredCourse.cta.href} variant="lemon" className="w-full lg:w-auto">
+                {content.featuredCourse.cta.label}
               </Button>
               <Link
-                href="#skills"
+                href={content.featuredCourse.browse.href}
                 className="inline-flex items-center justify-center gap-2 px-4 py-3.5 text-sm leading-6 text-white transition-colors hover:text-lemon lg:justify-start"
               >
-                Browse all courses
+                {content.featuredCourse.browse.label}
                 <ArrowIcon />
               </Link>
             </div>

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { footerColumns } from "@/lib/data";
+import { footerColumns, content } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -15,7 +15,7 @@ export function Footer() {
             luma<span aria-hidden="true">.</span>
           </Link>
           <p className="mt-3 max-w-xs text-sm leading-6 text-white/70">
-            Practical learning for curious people.
+            {content.footer.tagline}
           </p>
         </div>
 
@@ -47,7 +47,7 @@ export function Footer() {
 
       <Container className="border-t border-white/10 py-6">
         <p className="text-[13px] leading-[19.5px] text-white/60">
-          © 2026 Luma Learning
+          {content.footer.copyright}
         </p>
       </Container>
     </footer>

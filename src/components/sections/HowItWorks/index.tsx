@@ -1,16 +1,16 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { steps } from "@/lib/data";
+import { steps, content } from "@/lib/data";
 
 export function HowItWorks() {
   return (
     <section id="how" className="bg-cream">
       <Container className="py-[60px] lg:py-[100px]">
         <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>How Luma works</Eyebrow>
+          <Eyebrow>{content.howItWorks.eyebrow}</Eyebrow>
           <h2 className="mt-4 font-heading text-[32px] font-extrabold leading-[36px] tracking-tight text-ink lg:text-[48px] lg:leading-[56px]">
-            Less browsing. More learning.
+            {content.howItWorks.title}
           </h2>
         </div>
 

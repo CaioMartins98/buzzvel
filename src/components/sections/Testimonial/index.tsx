@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { CountUp } from "@/components/ui/CountUp";
-import { learningStats } from "@/lib/data";
+import { learningStats, content } from "@/lib/data";
 
 export function Testimonial() {
   return (
@@ -23,8 +23,7 @@ export function Testimonial() {
               />
             </svg>
             <blockquote className="mt-4 font-heading text-[20px] font-semibold leading-[28px] tracking-tight text-ink lg:text-[30px] lg:leading-[44px]">
-              The lessons are short enough to fit into my week, but detailed
-              enough that I actually leave with something I can use.
+              {content.testimonial.quote}
             </blockquote>
             <figcaption className="mt-8 flex items-center gap-4">
               <Image
@@ -35,9 +34,9 @@ export function Testimonial() {
                 className="h-12 w-12 rounded-full object-cover"
               />
               <div>
-                <p className="text-base leading-6 text-ink">Alex Morgan</p>
+                <p className="text-base leading-6 text-ink">{content.testimonial.author}</p>
                 <p className="text-sm leading-6 text-muted-2">
-                  Product Manager
+                  {content.testimonial.role}
                 </p>
               </div>
             </figcaption>
