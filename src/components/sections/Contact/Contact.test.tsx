@@ -22,6 +22,22 @@ describe("Contact", () => {
     expect(screen.getByText(/please tell us how we can help/i)).toBeInTheDocument();
   });
 
+  it("shows an error for an invalid email format", async () => {
+    const user = userEvent.setup();
+    render(<Contact />);
+
+    await user.type(screen.getByLabelText(/full name/i), "Caio");
+    await user.type(screen.getByLabelText(/email/i), "not-an-email");
+    await user.type(screen.getByLabelText(/your question/i), "How does Luma work?");
+
+    await user.click(screen.getByRole("button", { name: /send message/i }));
+
+    expect(
+      screen.getByText(/please enter a valid email address/i)
+    ).toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+  });
+
   it("shows a success message after a valid submit", async () => {
     const user = userEvent.setup();
     render(<Contact />);
